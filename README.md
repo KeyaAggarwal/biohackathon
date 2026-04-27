@@ -9,8 +9,8 @@ SynthShield is a production-ready DNA synthesis security system that protects ag
 - **Semantic evasion attacks** (5-method ensemble: reverse complement, frame shifts, junk interleaving, codon optimization, synthetic patterns)
 -  **Split-order reassembly attacks** (temporal Edison Guard with rolling buffer)
 - **Tampering & fraud** (HMAC-chained cryptographic logging with Merkle trees)
-- ✅ **Unauthorized synthesis** (hardware-enforced token verification with TPM)
-- ✅ **Regulatory compliance** (immutable blockchain audit trail on Ethereum L2)
+- **Unauthorized synthesis** (hardware-enforced token verification with TPM)
+- **Regulatory compliance** (immutable blockchain audit trail on Ethereum L2)
 
 **Detection Rate:** 85%+ across all attack types  
 **Processing Time:** 300-400ms per order  
@@ -18,7 +18,7 @@ SynthShield is a production-ready DNA synthesis security system that protects ag
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 - [Quick Start](#quick-start)
 - [Architecture](#architecture)
 - [Code Structure](#code-structure)
@@ -29,7 +29,7 @@ SynthShield is a production-ready DNA synthesis security system that protects ag
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -125,13 +125,13 @@ Complete Result (decision, risks, audit trail, blockchain, hardware status)
 
 ---
 
-## 📁 Code Structure
+## Code Structure
 
 ```
 synthshield/
-├── 📄 pipeline.py                     [MAIN: Unified orchestrator - START HERE]
+├── pipeline.py                     [MAIN: Unified orchestrator - START HERE]
 │
-├── 📁 core/                           [AI Screening & Orchestration]
+├── core/                           [AI Screening & Orchestration]
 │   ├── embeddings.py                  • ESM-2 embedding wrapper
 │   ├── sentinel_head.py               • Residual MLP risk scorer (generates tokens)
 │   ├── screening.py                   • Threshold-based decision logic
@@ -142,28 +142,28 @@ synthshield/
 │   ├── notebook_integration.py        • Bridge notebook research→production
 │   └── demo_l2_integration.py         • L2 blockchain demo
 │
-├── 📁 hardware/                       [Hardware & Cryptography]
+├── hardware/                       [Hardware & Cryptography]
 │   ├── blackbox.py                    • HMAC-SHA256 event chaining
 │   ├── edison_window.py               • Rolling buffer (50kb) + reassembly detection
 │   ├── interlock.py                   • Solenoid valve control with token verification
 │   └── demo_edison.py                 • Edison Guard demo
 │
-├── 📁 blockchain/                     [L2 Blockchain Integration]
+├── blockchain/                     [L2 Blockchain Integration]
 │   └── ethereum_anchor.py             • Optimism/Arbitrum/Base L2 submission
 │
-├── 📁 audit/                          [Forensic & Compliance]
+├── audit/                          [Forensic & Compliance]
 │   └── verify_chain.py                • Chain integrity verification
 │
-├── 📁 data/                           [Datasets]
+├── data/                           [Datasets]
 │   └── datasets.py                    • Dataset utilities
 │
-├── 📁 detection/                      [Legacy: Split-order Detection]
+├── detection/                      [Legacy: Split-order Detection]
 │   └── (files moved to hardware/)
 │
-└── 📁 frontend/                       [Web Dashboard]
+└── frontend/                       [Web Dashboard]
     └── App.jsx                        • React frontend (optional)
 ```
-
+```esm_biosecurity_screening.ipynb``` contains the training and evaluation for our ESM classifier.
 
 ## How to Implement
 
