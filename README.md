@@ -1,12 +1,11 @@
 # SynthShield
 
 ## Project Overview
-SynthShield is a dual-layered security architecture for benchtop DNA synthesizers. It addresses the "Benchtop Loophole" by integrating real-time functional AI screening with a tamper-evident hardware "Black Box."
+SynthShield is a dual-layered security architecture for benchtop DNA synthesizers, integrating real-time functional AI screening with a tamper-evident hardware "Black Box."
 
 ### Key Components
 1. **Sentinel Neural Head**: AI-based functional screening using ESM-2 embeddings and a custom Residual MLP head.
 2. **Forensic Black Box**: Cryptographically chained logging with Merkle Root aggregation.
-3. **Biological Root of Trust**: Hardware interlock for solenoid valve control.
 
 ## Repository Structure
 ```
@@ -40,5 +39,3 @@ synthshield/
 3. **Testing**:
    - Run audit tools: `python synthshield/audit/verify_chain.py`
 
-## Development Plan
-Refer to `misc/implement_plan.txt` for detailed milestones and coding tasks.

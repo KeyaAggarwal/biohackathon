@@ -31,7 +31,7 @@ dependencies = [
     "eth-account>=0.13.7",
     "eth-keys>=0.7.0",
     "eth-typing>=6.0.0",
-    "numpy>=2.4.4",
+    "numpy>=2.0.0",
     "scikit-learn>=1.3.0",
     "pydantic>=2.13.3",
 ]

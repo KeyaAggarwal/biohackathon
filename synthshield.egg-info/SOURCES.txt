@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+synthshield/__init__.py
+synthshield/pipeline.py
+synthshield.egg-info/PKG-INFO
+synthshield.egg-info/SOURCES.txt
+synthshield.egg-info/dependency_links.txt
+synthshield.egg-info/requires.txt
+synthshield.egg-info/top_level.txt

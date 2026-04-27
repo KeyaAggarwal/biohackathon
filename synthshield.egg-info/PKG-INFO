@@ -1,0 +1,95 @@
+Metadata-Version: 2.4
+Name: synthshield
+Version: 1.0.0
+Summary: AI-powered DNA synthesis security with real-time threat detection
+Author: SynthShield Team
+License: Apache-2.0
+Project-URL: Homepage, https://github.com/yourusername/aixbio
+Project-URL: Documentation, https://github.com/yourusername/aixbio/tree/main/docs
+Project-URL: Repository, https://github.com/yourusername/aixbio
+Project-URL: Bug Tracker, https://github.com/yourusername/aixbio/issues
+Keywords: biosecurity,DNA,synthesis,AI,security,threat-detection
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Healthcare/Science
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.14
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch>=2.4.1
+Requires-Dist: torchvision>=0.19.1
+Requires-Dist: transformers>=4.41.0
+Requires-Dist: web3>=7.15.0
+Requires-Dist: eth-account>=0.13.7
+Requires-Dist: eth-keys>=0.7.0
+Requires-Dist: eth-typing>=6.0.0
+Requires-Dist: numpy>=2.0.0
+Requires-Dist: scikit-learn>=1.3.0
+Requires-Dist: pydantic>=2.13.3
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0; extra == "dev"
+Requires-Dist: black>=23.0; extra == "dev"
+Requires-Dist: flake8>=6.0; extra == "dev"
+Requires-Dist: isort>=5.0; extra == "dev"
+Requires-Dist: mypy>=1.0; extra == "dev"
+Requires-Dist: pre-commit>=3.0; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: jupyter>=1.0; extra == "docs"
+Requires-Dist: jupyterlab>=3.0; extra == "docs"
+Requires-Dist: nbconvert>=7.0; extra == "docs"
+Requires-Dist: sphinx>=5.0; extra == "docs"
+Requires-Dist: sphinx-rtd-theme>=1.0; extra == "docs"
+Provides-Extra: all
+Requires-Dist: synthshield[dev,docs]; extra == "all"
+Dynamic: license-file
+
+# SynthShield
+
+## Project Overview
+SynthShield is a dual-layered security architecture for benchtop DNA synthesizers. It addresses the "Benchtop Loophole" by integrating real-time functional AI screening with a tamper-evident hardware "Black Box."
+
+### Key Components
+1. **Sentinel Neural Head**: AI-based functional screening using ESM-2 embeddings and a custom Residual MLP head.
+2. **Forensic Black Box**: Cryptographically chained logging with Merkle Root aggregation.
+3. **Biological Root of Trust**: Hardware interlock for solenoid valve control.
+
+## Repository Structure
+```
+synthshield/
+├── core/                # AI Sentinel & Screening Logic
+│   ├── sentinel_head.py # PyTorch Residual Head Implementation
+│   ├── embeddings.py    # ESM-2/3 Inference Wrapper
+│   └── screening.py     # Functional Manifold Projection logic
+├── hardware/            # Black Box & Interlock Simulation
+│   ├── blackbox.py      # HMAC-chained Logging & Merkle Tree
+│   ├── interlock.py     # Solenoid Valve Control Simulation
+│   └── edison_window.py # Sliding window assembly detection
+├── web/                 # Dashboard Frontend
+│   └── src/App.jsx      # React-based BRoT Interface
+├── audit/               # Forensic Audit Tools
+│   └── verify_chain.py  # Script to validate device integrity
+└── data/                # Mock datasets for toxins/evasions
+```
+
+## Usage
+1. **Setup**:
+   - Create a virtual environment: `python3 -m venv uv`
+   - Activate the environment: `source uv/bin/activate`
+   - Install dependencies: `pip install -r requirements.txt`
+
+2. **Run Components**:
+   - Sentinel Neural Head: `python synthshield/core/sentinel_head.py`
+   - Forensic Black Box: `python synthshield/hardware/blackbox.py`
+   - Dashboard: `cd synthshield/web && npm start`
+
+3. **Testing**:
+   - Run audit tools: `python synthshield/audit/verify_chain.py`
+
+## Development Plan
+Refer to `misc/implement_plan.txt` for detailed milestones and coding tasks.
