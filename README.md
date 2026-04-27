@@ -2,13 +2,13 @@
 
 > **A Comprehensive Biosecurity Platform** that screens DNA synthesis orders for dangerous pathogens using 8-layer detection architecture with AI, cryptography, and blockchain integration.
 
-## 🎯 Executive Summary
+## Executive Summary
 
 SynthShield is a production-ready DNA synthesis security system that protects against:
-- ✅ **Dangerous pathogens** (AI screening with ESM-2 protein language model)
-- ✅ **Semantic evasion attacks** (5-method ensemble: reverse complement, frame shifts, junk interleaving, codon optimization, synthetic patterns)
-- ✅ **Split-order reassembly attacks** (temporal Edison Guard with rolling buffer)
-- ✅ **Tampering & fraud** (HMAC-chained cryptographic logging with Merkle trees)
+-  **Dangerous pathogens** (AI screening with ESM-2 protein language model)
+- **Semantic evasion attacks** (5-method ensemble: reverse complement, frame shifts, junk interleaving, codon optimization, synthetic patterns)
+-  **Split-order reassembly attacks** (temporal Edison Guard with rolling buffer)
+- **Tampering & fraud** (HMAC-chained cryptographic logging with Merkle trees)
 - ✅ **Unauthorized synthesis** (hardware-enforced token verification with TPM)
 - ✅ **Regulatory compliance** (immutable blockchain audit trail on Ethereum L2)
 
@@ -164,9 +164,8 @@ synthshield/
     └── App.jsx                        • React frontend (optional)
 ```
 
----
 
-## 💻 How to Implement
+## How to Implement
 
 ### Step 1: Prepare Toxin References
 
@@ -255,9 +254,8 @@ if result.blockchain_record:
     print(f"Immutable record on L2: {tx_hash}")
 ```
 
----
 
-## 🔌 API Reference
+## API Reference
 
 ### SynthShieldPipeline
 
