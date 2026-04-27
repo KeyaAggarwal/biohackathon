@@ -1,0 +1,84 @@
+SynthShield: Final Technical Implementation Plan
+1. Project Overview
+SynthShield is a dual-layered security architecture for benchtop DNA synthesizers. It addresses the "Benchtop Loophole" by integrating real-time functional AI screening with a tamper-evident hardware "Black Box."
+2. Component Architecture
+A. The Sentinel Neural Head (Inference-Time Screen)
+Building on the discovery that ESM-2 embeddings catch "twilight zone" homologs (<30% identity), the Sentinel Head uses a deep residual architecture to project sequences into a Functional Manifold.
+Model: ESM-2 (650M) backbone with a custom Residual MLP head.
+Training Strategy: Contrastive Triplet Loss (Toxin Anchor vs. Benign Negative vs. AI-Evasion Positive).
+Novelty: Detects "Functional Intent" (e.g., pore-forming capability) rather than sequence identity.
+B. The Forensic Black Box (Immutable Logger)
+To satisfy the Biosecurity Modernization Act of 2026 (S.3741), the device maintains a cryptographically chained log.
+Mechanism: Each synthesis event  is logged as .
+Key Management: The secret key  is stored in a Hardware Root of Trust (Secure Enclave), making it inaccessible to the user.
+Verification: Periodic Merkle Roots are anchored to a public ledger for third-party auditability.
+C. The Biological Root of Trust (Hardware Interlock)
+A firmware-level handshake between the screening module and the reagent solenoid valves.
+Fail-Safe: Valves remain physically closed (de-energized) by default.
+Authorization: Only a signed "Permission Token" from the Sentinel module allows the valves to actuate.
+3. 48-Hour Development Milestones
+Module 1 (The Brain): Implement the SentinelFunctionalHead and the embedding projection logic.
+Module 2 (The Memory): Develop the BlackBoxChain with HMAC-256 and Merkle Root aggregation.
+Module 3 (The Guardrail): Script the sliding-window "Edison" detector to reassemble and screen fragments.
+Module 4 (The Interface): Connect the logic to the React-based BRoT Dashboard for the final pitch.
+4. Success Metrics
+Detection Rate: >85% recall on AI-paraphrased toxins that bypass commec.
+Integrity Proof: Demonstrated detection of any log modification via hash-chain breakage.
+Privacy: Successful ZK-Proof generation for "Clean History" without sequence disclosure.
+
+3. Repository Structure & Coding Plan
+
+Directory Layout
+
+synthshield/
+├── core/                # AI Sentinel & Screening Logic
+│   ├── sentinel_head.py # PyTorch Residual Head Implementation
+│   ├── embeddings.py    # ESM-2/3 Inference Wrapper
+│   └── screening.py     # Functional Manifold Projection logic
+├── hardware/            # Black Box & Interlock Simulation
+│   ├── blackbox.py      # HMAC-chained Logging & Merkle Tree
+│   ├── interlock.py     # Solenoid Valve Control Simulation
+│   └── edison_window.py # Sliding window assembly detection
+├── web/                 # Dashboard Frontend
+│   └── src/App.jsx      # React-based BRoT Interface
+├── audit/               # Forensic Audit Tools
+│   └── verify_chain.py  # Script to validate device integrity
+└── data/                # Mock datasets for toxins/evasions
+
+
+Detailed Coding Plan
+
+Phase 1: Module 1 - The AI Brain (Sentinel)
+
+embeddings.py: Create a wrapper for esm.pretrained.esm2_t33_650M_UR50D() to extract the representations[33] (mean-pooled) of input sequences.
+
+sentinel_head.py: Implement a 3-layer Residual MLP. Use Triplet Margin Loss during training to ensure that known toxins and their AI-designed "twilight-zone" variants cluster together in the security latent space.
+
+screening.py: Develop a thresholding function that outputs a risk_score (0.0 to 1.0) and a release_token (cryptographically signed hash of the authorized sequence).
+
+Phase 2: Module 2 - The Hardware Logic (Black Box)
+
+blackbox.py: Implement the BlackBoxChain class. For each synthesis, generate an HMAC-SHA256 hash that binds the Sequence_Hash, ML_Score, and the Previous_Block_Hash.
+
+edison_window.py: Build a persistent buffer that keeps the last 100kb of synthesis history. Every 10kb, re-run the Sentinel head on the virtual assembly to detect "Split-Order" viral reconstruction.
+
+Phase 3: Module 3 - The Interlock Handshake
+
+interlock.py: Create a simulated state machine. status: LOCKED by default. It only transitions to status: AUTHORIZED if the release_token from Phase 1 is validated against the device's internal Root of Trust.
+
+Phase 4: Integration & Visualization
+
+Dashboard Implementation: Connect the backend Python logic to the React dashboard via a FastAPI bridge (or mock JSON interface for the hackathon demo).
+
+The "Audit Drill": Create a script verify_chain.py that purposefully alters a single bit in a historical log and demonstrates how the BlackBoxChain identifies the tampering immediately.
+
+4. Success Metrics
+Examples:
+
+Detection Rate: >85% recall on AI-paraphrased toxins that bypass standard homology screens.
+
+Integrity Proof: Demonstrated detection of any log modification via hash-chain breakage.
+
+Latency: Inference-time screen completed in <2 seconds per fragment.
+
+Privacy: Successful ZK-Proof generation for "Clean History" without sequence disclosure.

@@ -1,0 +1,105 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "synthshield"
+version = "1.0.0"
+description = "AI-powered DNA synthesis security with real-time threat detection"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+authors = [{name = "SynthShield Team"}]
+requires-python = ">=3.10"
+keywords = ["biosecurity", "DNA", "synthesis", "AI", "security", "threat-detection"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Healthcare/Science",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.14",
+]
+
+dependencies = [
+    "torch>=2.4.1",
+    "torchvision>=0.19.1",
+    "transformers>=4.41.0",
+    "web3>=7.15.0",
+    "eth-account>=0.13.7",
+    "eth-keys>=0.7.0",
+    "eth-typing>=6.0.0",
+    "numpy>=2.4.4",
+    "scikit-learn>=1.3.0",
+    "pydantic>=2.13.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "isort>=5.0",
+    "mypy>=1.0",
+    "pre-commit>=3.0",
+]
+docs = [
+    "jupyter>=1.0",
+    "jupyterlab>=3.0",
+    "nbconvert>=7.0",
+    "sphinx>=5.0",
+    "sphinx-rtd-theme>=1.0",
+]
+all = [
+    "synthshield[dev,docs]",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/aixbio"
+Documentation = "https://github.com/yourusername/aixbio/tree/main/docs"
+Repository = "https://github.com/yourusername/aixbio"
+"Bug Tracker" = "https://github.com/yourusername/aixbio/issues"
+
+[tool.setuptools]
+packages = ["synthshield"]
+
+[tool.setuptools.package-data]
+synthshield = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_mode = 3
+line_length = 100
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --tb=short"

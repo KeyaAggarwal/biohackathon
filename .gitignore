@@ -1,0 +1,25 @@
+# Ignore Python virtual environment
+synthshield/uv/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore IDE settings
+.vscode/
+.idea/
+
+# Ignore node_modules for frontend
+synthshield/web/node_modules/
+
+# Ignore other common files
+*.log
+*.tmp
+*.swp
+.DS_Store
+misc/
+
+# Virtual environments
+.venv/
+venv/
+env/.venv/
