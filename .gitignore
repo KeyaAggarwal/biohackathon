@@ -26,3 +26,6 @@ env/.venv/
 
 *.md
 !README.md
+
+*.ipynb
+!esm_biosecurity_screening.ipynb
